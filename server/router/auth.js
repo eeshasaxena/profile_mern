@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router();
 const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
 require('../db/connection')
 const User = require('../models/userSchema')
@@ -43,12 +44,15 @@ router.post("/register", async (req, res) => {
 router.post('/login', async (req, res) => {
 
     try {
+        let token;
         const { email, password } = req.body
         if (!email || !password) {
             res.status(400).json({ error: "fill all the fields " })
         }
 
         const userLogin = await User.findOne({ email: email });
+        token = await userLogin.generateAuthToken();
+        console.log(token)
 
         if (userLogin) {
             // match password
@@ -61,8 +65,6 @@ router.post('/login', async (req, res) => {
         } else {
             res.status(400).json({ error: "Invalid credentials" })
         }
-
-
 
 
     } catch (err) {
