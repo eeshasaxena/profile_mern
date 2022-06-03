@@ -51,6 +51,7 @@ router.post('/login', async (req, res) => {
         }
 
         const userLogin = await User.findOne({ email: email });
+        
         // token auth
         token = await userLogin.generateAuthToken();
         // console.log(token)
