@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const Signup = () => {
   return (
@@ -50,6 +51,11 @@ const Signup = () => {
               </div>
             </form>
 
+            <div className = "form-group form-button">
+              <input type="submit" name="signup" id="signup" className="form-submit" value="register"></input>
+            </div>
+
+          <NavLink to="/login" >already registered?</NavLink>
 
           </div>
         </div>
