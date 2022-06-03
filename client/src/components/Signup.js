@@ -1,66 +1,101 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
 const Signup = () => {
+
+  // get user data and store it 
+  const [user, setUser] = useState({
+    name: "", email: "", phone: "", work: "", password: "", cpassword: ""
+  })
+
+  let name, value
+  const handleInputs = (e) => {
+    console.log(e)
+    name = e.target.name
+    value = e.target.value
+
+    setUser({...user, [name]:value});
+  }
+
   return (
-    <section className="signup">
-      <div className ="container mt-5">
-        <div clasName = "signup-content">
-          <div className="form-title">
-            <h2>Signup</h2>
+    <>
+      <section className="signup">
+        <div className="container mt-5">
+          <div className="signup-content">
+            <div className="form-title">
+              <h2>Signup</h2>
 
-            <form className="register-form">
-              <div className='form-group'>
-                <label htmlFor="name"></label>
-                <input type="text" name="name" id="name" autoComplete="off" placeholder="your name"></input>                
+              <form className="register-form">
+                <div className='form-group'>
+                  <label htmlFor="name"></label>
+                  <input type="text" name="name" id="name" autoComplete="off"
+                  value ={user.name}
+                  onChange = {handleInputs}
+                  placeholder="your name"></input>
+                </div>
+              </form>
+
+              <form className="register-form">
+                <div className='form-group'>
+                  <label htmlFor="email"></label>
+                  <input type="email" name="email" id="email" autoComplete="off"
+                  value ={user.email}
+                  onChange = {handleInputs}
+                  placeholder="your email"></input>
+                </div>
+              </form>
+
+              <form className="register-form">
+                <div className='form-group'>
+                  <label htmlFor="phone"></label>
+                  <input type="number" name="phone" id="phone" autoComplete="off"
+                  value ={user.phone}
+                  onChange = {handleInputs}
+                  placeholder="your number"></input>
+                </div>
+              </form>
+
+              <form className="register-form">
+                <div className='form-group'>
+                  <label htmlFor="work"></label>
+                  <input type="text" name="work" id="work" autoComplete="off"
+                  value ={user.work}
+                  onChange = {handleInputs}
+                  placeholder="your work"></input>
+                </div>
+              </form>
+
+              <form className="register-form">
+                <div className='form-group'>
+                  <label htmlFor="password"></label>
+                  <input type="password" name="password" id="password" autoComplete="off"
+                  value ={user.password}
+                  onChange = {handleInputs}
+                  placeholder="your password"></input>
+                </div>
+              </form>
+
+              <form className="register-form">
+                <div className='form-group'>
+                  <label htmlFor="cpassword"></label>
+                  <input type="password" name="cpassword" id="cpassword" autoComplete="off"
+                  value ={user.cpassword}
+                  onChange = {handleInputs}
+                  placeholder="your cpassword"></input>
+                </div>
+              </form>
+
+              <div className="form-group form-button">
+                <input type="submit" name="signup" id="signup" className="form-submit" value="register"></input>
               </div>
-            </form>
 
-            <form className="register-form">
-              <div className='form-group'>
-                <label htmlFor="email"></label>
-                <input type="email" name="email" id="email" autoComplete="off" placeholder="your email"></input>                
-              </div>
-            </form>
+              <NavLink to="/login" >already registered?</NavLink>
 
-            <form className="register-form">
-              <div className='form-group'>
-                <label htmlFor="phone"></label>
-                <input type="number" name="phone" id="phone" autoComplete="off" placeholder="your number"></input>                
-              </div>
-            </form>
-
-            <form className="register-form">
-              <div className='form-group'>
-                <label htmlFor="work"></label>
-                <input type="text" name="work" id="work" autoComplete="off" placeholder="your work"></input>                
-              </div>
-            </form>
-
-            <form className="register-form">
-              <div className='form-group'>
-                <label htmlFor="password"></label>
-                <input type="password" name="password" id="password" autoComplete="off" placeholder="your password"></input>                
-              </div>
-            </form>
-
-            <form className="register-form">
-              <div className='form-group'>
-                <label htmlFor="cpassword"></label>
-                <input type="password" name="cpassword" id="cpassword" autoComplete="off" placeholder="your cpassword"></input>                
-              </div>
-            </form>
-
-            <div className = "form-group form-button">
-              <input type="submit" name="signup" id="signup" className="form-submit" value="register"></input>
             </div>
-
-          <NavLink to="/login" >already registered?</NavLink>
-
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }
 
