@@ -6,7 +6,7 @@ const Login = () => {
   return (
     <section className="login">
       <div className ="container mt-5">
-        <div clasName = "login-content">
+        <div className = "login-content">
           <div className="form-title">
             <h2>Login</h2>
 

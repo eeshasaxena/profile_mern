@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
@@ -10,9 +10,7 @@ import Errorpage from './components/Errorpage';
 import {
   BrowserRouter,
   Routes,
-  Route,
-  NavLink,
-  useRouteMatch,
+  Route
 } from "react-router-dom";
 
 function App() {
