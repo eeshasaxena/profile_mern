@@ -51,8 +51,14 @@ router.post('/login', async (req, res) => {
         }
 
         const userLogin = await User.findOne({ email: email });
+        // token auth
         token = await userLogin.generateAuthToken();
-        console.log(token)
+        // console.log(token)
+
+        res.cookie("jwtoken", token, {
+            expires : new Date(Date.now() + 258922000000),
+            httpOnly : true
+        });
 
         if (userLogin) {
             // match password
