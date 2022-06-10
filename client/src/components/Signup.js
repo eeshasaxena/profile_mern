@@ -118,7 +118,8 @@ const Signup = () => {
 
               <div className="form-group form-button">
                 <input type="submit" name="signup" id="signup" 
-                className="form-submit" value="register" onClick={postData}></input>
+                className="form-submit" value="register" 
+                onClick={postData}></input>
               </div>
 
               <NavLink to="/login" >already registered?</NavLink>

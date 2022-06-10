@@ -47,7 +47,7 @@ app.get('/signup', (req,res) => {
 
 // console.log("the code works")
 
-// listen and responf to the requesting stating the server 
+// listen and respond to the requesting stating the server 
 const PORTS = process.env.PORT
 app.listen(PORTS, () =>{
     console.log('Server is running at', PORTS);

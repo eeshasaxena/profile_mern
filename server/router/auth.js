@@ -26,7 +26,7 @@ router.post("/register", async (req, res) => {
     if (userExist) {
         return res.status(422).json({ error: "user already exists" })
     } else if (password != cpassword) {
-        res.status(400).json({ error: "Passwords dont match" })
+        res.status(400).json({ error: "Passwords don't match" })
     }
     else {
         try {
@@ -46,6 +46,7 @@ router.post('/login', async (req, res) => {
     try {
         let token;
         const { email, password } = req.body
+        console.log(req.body)
         if (!email || !password) {
             res.status(400).json({ error: "fill all the fields " })
         }
@@ -75,7 +76,7 @@ router.post('/login', async (req, res) => {
 
 
     } catch (err) {
-        res.json({ error })
+        res.status(404).json({ err});
     }
 });
 
